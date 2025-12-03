@@ -1,12 +1,12 @@
 # Magentix Message Queue Module
 
+A Magento 2 module that allows you to manually execute MySQL message queue (MysqlMq) messages by their identifier or topic.
+
 ## Installation
 
 ```bash
 composer require magentix/magento-module-message-queue
 ```
-
-A Magento 2 module that allows you to manually execute MySQL message queue (MysqlMq) messages by their identifier or topic.
 
 ## Description
 
