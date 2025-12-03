@@ -23,6 +23,8 @@ class Process extends Command
 
     private const OPTION_TOPIC = 'topic';
 
+    private const AREA_CODE = 'area';
+
     private const OPTION_FORCE = 'force';
 
     public function __construct(
@@ -53,6 +55,13 @@ class Process extends Command
                 'Queue message ID',
             )
             ->addOption(
+                self::AREA_CODE,
+                'a',
+                InputOption::VALUE_OPTIONAL,
+                'Specify the preferred area: global, frontend, adminhtml',
+                Area::AREA_GLOBAL
+            )
+            ->addOption(
                 self::OPTION_FORCE,
                 'f',
                 InputOption::VALUE_OPTIONAL,
@@ -63,8 +72,13 @@ class Process extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $areaCode = $input->getOption(self::AREA_CODE);
+        if (!in_array($areaCode, [Area::AREA_GLOBAL, Area::AREA_ADMINHTML, Area::AREA_FRONTEND])) {
+            $areaCode = Area::AREA_GLOBAL;
+        }
+
         try {
-            $this->appState->setAreaCode(Area::AREA_FRONTEND);
+            $this->appState->setAreaCode($areaCode);
         } catch (Exception) {}
 
         $messageId = $input->getOption(self::OPTION_MESSAGE_ID);

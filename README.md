@@ -75,6 +75,7 @@ bin/magento queue:message:process [options]
 |-----------|----------|--------------------------------------------------------------------------|
 | `--id`    | `-m`     | Message ID in the `queue_message` table                                  |
 | `--topic` | `-t`     | Topic name (e.g., `product_alert`, `sales.rule.quote.trigger.recollect`) |
+| `--area`  | `-a`     | Area code (`global`, `adminhtml`, `frontend`)                            |
 | `--force` | `-f`     | Force execution even if the message status is not NEW                    |
 
 ### Examples
