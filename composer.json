@@ -1,0 +1,17 @@
+{
+    "name": "magentix/magento-module-message-queue",
+    "require": {
+        "php": "^8.2",
+        "magento/framework": "*",
+        "magento/module-mysql-mq": "*"
+    },
+    "type": "magento2-module",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Magentix\\MessageQueue\\": ""
+        }
+    }
+}
